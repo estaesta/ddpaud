@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="dark font-mono">
+  <head>
+    <meta charset="utf-8" />
+    <title>MyBlog</title>
+    <link rel="stylesheet" href="/output.css" />
+  </head>
+
+  <body class="bg-bg">
+    <section class="section min-h-screen">
+      <div class="container mx-auto mb-2 mt-4 text-yellow max-w-4xl">
+        <!-- navbar -->
+        <nav class="flex justify-between">
+          <div class="flex">
+            <a href="/" class="text-2xl font-bold">
+              ddPaud
+            </a>
+          </div>
+          <div class="flex items-center">
+            <a href="/" class="ml-4">Blog</a>
+            <a href="/archive" class="ml-4">Archive</a>
+            <a href="/tags" class="ml-4">Tags</a>
+            <a href="/about" class="ml-4">About</a>
+          </div>
+        </nav>
+
+        <!-- horizontal line -->
+        <div class="border-t-2 border-dashed border-yellow mb-4 mt-2"></div>
+
+        <!-- content -->
+        {% block content %} {% endblock %}
+
+      </div>
+    </section>
+        <p class="text-yellow text-sm container mx-auto max-w-4xl mt-10">
+          &copy; 2021 ddPaud. All rights reserved.
+        </p>
+  </body>
+</html>

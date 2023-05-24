@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% set section = get_section(path="posts/_index.md") %}
+<h1 class="title text-xl font-semibold my-8 border-b-yellow border-b-2 w-fit">
+  Archive
+</h1>
+<ul>
+  <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->  
+  {% for page in section.pages %}
+  <li class="mb-1">
+    <a href="{{ page.permalink | safe }}" class="font-bold">
+      <h1 class="">
+        <time class="text-gray">{{ page.date | date(format="%Y-%m-%d") }}</time>
+        <span class="pb-[2px] border-b-2 border-blue w-fit">{{ page.title }}</span>
+      </h1>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
