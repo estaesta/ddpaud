@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="text-xl mb-2">Tags</h1>
+
+    <div class="">
+      {% for term in terms %}
+            <a href="{{ term.permalink | safe }}" class="border-green border ml-0 p-1 m-2 rounded hover:bg-bg1 inline-block">
+                {{ term.name }} ({{ term.pages | length }})
+            </a>
+      {% endfor %}
+    </div>
+{% endblock content %}

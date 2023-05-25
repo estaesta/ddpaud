@@ -1,7 +1,8 @@
 +++
 title = "My first post"
 date = 2019-11-27
-reading_time = 99
+[taxonomies]
+tags=["blog", "posts", "digital forensics", "nununturntunrut", "rtritenrtinrtirntri", "tnrtirntrsntirntriestnr", "rterntirentrtn"]
 +++
 
 # This is my first blog post.

@@ -2,32 +2,35 @@
 
 {% block content %}
 
-{%- if paginator %}
-  {%- set show_pages = paginator.pages -%}
-{% else %}
-  {% set section = get_section(path="blog/_index.md") %}
-  {%- set show_pages = section.pages -%}
-{% endif -%}
-<h1 class="title text-xl font-semibold mb-4 border-b-yellow border-b-2 w-fit">
-<!-- {{ section.title }} -->
-</h1>
 <ul>
-
-<!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->  
-
-{% for page in show_pages %}
+<!-- iterate over all pages -->
+{% for page in paginator.pages %}
 <li class="mt-10">
   <section class="list-item">
+    <!-- page title -->
     <a href="{{ page.permalink | safe }}" class="font-bold">
-      <h1 class="mb-3 ">
-        <span class="text-red">ᐳ</span> <span class="pb-[2px] border-b-2 border-blue w-fit">{{ page.title }}</span>
+      <h1 class="mb-1 ">
+        <span class="text-red">ᐳ</span> <span class="pb-[2px] border-b-2 border-blueDim hover:border-blue w-fit">{{ page.title }}</span>
       </h1>
     </a>
 
+    <!-- page date and reading time -->
     <time class="text-gray">{{ page.date | date(format="%Y-%m-%d") }}</time>
     <span class="text-gray">| {{ page.reading_time }} minute read</span>
+    <!-- taxonomy tags -->
+    {% if page.taxonomies and page.taxonomies.tags %}
+      <div class="mt-1">
+        {% for tag in page.taxonomies.tags %}
+          <a href={{ get_taxonomy_url(kind='tags', name=tag) | safe }} 
+          class=" p-1 border rounded mr-1">
+            {{ tag }}
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <br />
+    <!-- desc / summary / clamped content -->
     <div class="description mr-8">
       {% if page.description %}
       {{ page.description }}
@@ -40,17 +43,19 @@
       {% endif %}
     </div>
 
+    <!-- readmore -->
     <a class="readmore text-green underline-offset-8 underline" href={{ page.permalink }}>Read more ⟶</a>
   </section>
 </li>
 {% endfor %}
 </ul>
-<nav class="pagination">
+<!-- paginator nv -->
+<nav class="pagination mt-10 justify-center flex">
   {% if paginator.previous %}
-  <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+  <a class="previous mr-10 hover:underline underline-offset-4" href="{{ paginator.previous }}">‹ Previous Page</a>
   {% endif %}
   {% if paginator.next %}
-  <a class="next" href="{{ paginator.next }}">Next ›</a>
+  <a class="next hover:underline underline-offset-4" href="{{ paginator.next }}">Next Page ›</a>
   {% endif %}
 </nav>
 {% endblock content %}
