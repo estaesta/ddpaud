@@ -740,6 +740,10 @@ video {
   border-color: var(--yellow);
 }
 
+.border-yellowDim {
+  border-color: var(--yellow-dim);
+}
+
 .border-b-yellow {
   border-bottom-color: var(--yellow);
 }
@@ -752,8 +756,16 @@ video {
   background-color: var(--bg1);
 }
 
+.bg-bg2 {
+  background-color: var(--bg2);
+}
+
 .p-1 {
   padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .px-4 {
@@ -795,6 +807,11 @@ video {
 
 .text-xl {
   font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
@@ -916,13 +933,18 @@ html.dark {
 }
 
 .markdown-content h1,
-h2,
-h3,
+h2 {
+  font-size: 1.5rem;
+  margin-top: 1em;
+  color: var(--orange);
+}
+
+.markdown-content h3,
 h4,
 h5,
 h6 {
-  font-size: 1.5rem;
-  margin-top: 2em;
+  font-size: 1.25rem;
+  margin-top: 1em;
   color: var(--orange);
 }
 
@@ -954,6 +976,92 @@ h6 {
 .markdown-content h6::before {
   color: var(--maincolor);
   content: "###### ";
+}
+
+.markdown-content img {
+  margin: 0.5em auto;
+  justify-content: center;
+}
+
+.markdown-content a {
+  color: var(--green-dim);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.markdown-content ol,
+.markdown-content ul {
+  padding-left: 2em;
+}
+
+.markdown-content ol ol,
+.markdown-content ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-content ol ul,
+.markdown-content ul ul {
+  list-style-type: circle;
+}
+
+.markdown-content ol ul ul,
+.markdown-content ul ul ul {
+  list-style-type: square;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+}
+
+.markdown-content pre {
+  word-wrap: normal;
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: var(--color-bg-tertiary);
+  border-radius: 3px;
+}
+
+.markdown-content pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  font-size: 100%;
+  line-height: inherit;
+  word-wrap: normal;
+  white-space: pre;
+  border: 0;
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+.markdown-content pre code:before,
+.markdown-content pre code:after {
+  content: normal;
+}
+
+.markdown-content code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: var(--color-markdown-code-bg);
+  border-radius: 3px;
+}
+
+.markdown-content code:before,
+.markdown-content code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
 }
 
 .hover\:border-blue:hover {

@@ -5,21 +5,21 @@
 <ul>
 <!-- iterate over all pages -->
 {% for page in paginator.pages %}
-<li class="mt-10">
+<li class="mt-10 p-2 rounded border-yellowDim border">
   <section class="list-item">
     <!-- page title -->
-    <a href="{{ page.permalink | safe }}" class="font-bold">
+    <a href="{{ page.permalink | safe }}" class="font-bold text-lg">
       <h1 class="mb-1 ">
         <span class="text-red">ᐳ</span> <span class="pb-[2px] border-b-2 border-blueDim hover:border-blue w-fit">{{ page.title }}</span>
       </h1>
     </a>
 
     <!-- page date and reading time -->
-    <time class="text-gray">{{ page.date | date(format="%Y-%m-%d") }}</time>
-    <span class="text-gray">| {{ page.reading_time }} minute read</span>
+    <time class="text-gray text-sm">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    <span class="text-gray text-sm">| {{ page.reading_time }} minute read</span>
     <!-- taxonomy tags -->
     {% if page.taxonomies and page.taxonomies.tags %}
-      <div class="mt-1">
+      <div class="mt-1 text-sm">
         {% for tag in page.taxonomies.tags %}
           <a href={{ get_taxonomy_url(kind='tags', name=tag) | safe }} 
           class=" p-1 border rounded mr-1">
@@ -31,7 +31,7 @@
 
     <br />
     <!-- desc / summary / clamped content -->
-    <div class="description mr-8">
+    <div class="description mr-8 text-sm">
       {% if page.description %}
       {{ page.description }}
       {% elif page.summary %}
